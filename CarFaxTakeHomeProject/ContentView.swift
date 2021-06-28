@@ -67,22 +67,31 @@ struct CarCardView: View {
 
                 VStack(alignment: .center) {
 
-                    HStack {
-                        Text("\(price)")
-                            .bold()
-                        Divider()
-                            .background(Color.black)
-                        Text("\(miles) miles")
-
-                        Divider()
-                            .background(Color.black)
-                        
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                            .fill(Color.green.opacity(0.8))
                         HStack {
-                            Text("\(city),")
-                            Text(state)
+                            Text("$\(price)")
+                                .bold()
+                            Divider()
+                                .background(Color.black)
+                            Text("\(miles) miles")
+                                .bold()
+
+                            Divider()
+                                .background(Color.black)
+
+                            HStack {
+                                Text("\(city),")
+                                Text(state)
+                                    .bold()
+                            }
+                            .lineLimit(1)
+
                         }
+                        .foregroundColor(Color.white)
+                        .frame(height: 50)
                     }
-                    .frame(height: 50)
 
                     HStack {
                         Spacer()

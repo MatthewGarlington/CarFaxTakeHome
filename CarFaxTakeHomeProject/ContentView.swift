@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ContentView: View {
     @ObservedObject var carDataViewModel = CarDataViewModel()
     var body: some View {
         NavigationView {
             ScrollView {
+                VStack(spacing: 30) {
                 ForEach((carDataViewModel.carData?.listings) ?? [], id: \.self)  { car in
-                    CarCardView(year: car.year, make: car.make, model: car.model, price: car.currentPrice, miles: car.mileage, location: car.dealer.city, phoneNumber: car.dealer.phone)
+                    CarCardView(year: car.year, make: car.make, model: car.model, price: car.currentPrice, miles: car.mileage, state: car.dealer.state, city: car.dealer.city, phoneNumber: car.dealer.phone, imageURL: car.images.large.first ?? "", trim: car.trim)
+                }
                 }
             }
             .navigationTitle("CarFax")
@@ -33,23 +36,37 @@ struct CarCardView: View {
     var model: String
     var price: Int
     var miles: Int
-    var location: String
+    var state: String
+    var city: String
     var phoneNumber: String
+    var imageURL: String
+    var trim: String
     var body: some View {
         ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                .fill(Color.black.opacity(0.2))
-                .frame(height: 350)
+                .fill(Color.white)
+                .frame(height: 400)
                 .padding(.horizontal)
+                .shadow(color: Color.black.opacity(0.4), radius: 20, x: 20, y: 20)
             VStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .fill(Color.black.opacity(0.4))
-                    .frame(height: 175)
 
+                ZStack(alignment: .bottomLeading) {
+                    KFImage(URL(string: imageURL)!)
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(25.0)
 
-                VStack(alignment: .leading) {
-                    Text("\(year) \(make) \(model)")
+                    LinearGradient(colors: [Color.black.opacity(0.6), Color.clear], startPoint: .bottom, endPoint: .center)
+
+                    Text("\(String(year)) \(make) \(model) \(trim)")
+                        .foregroundColor(Color.white)
                         .bold()
+                        .padding()
+                }
+
+
+                VStack(alignment: .center) {
+
                     HStack {
                         Text("\(price)")
                             .bold()
@@ -60,7 +77,10 @@ struct CarCardView: View {
                         Divider()
                             .background(Color.black)
                         
-                        Text(location)
+                        HStack {
+                            Text("\(city),")
+                            Text(state)
+                        }
                     }
                     .frame(height: 50)
 

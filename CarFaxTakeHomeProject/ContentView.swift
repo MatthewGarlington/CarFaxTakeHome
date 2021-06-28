@@ -14,9 +14,9 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 30) {
-                ForEach((carDataViewModel.carData?.listings) ?? [], id: \.self)  { car in
-                    CarCardView(year: car.year, make: car.make, model: car.model, price: car.currentPrice, miles: car.mileage, state: car.dealer.state, city: car.dealer.city, phoneNumber: car.dealer.phone, imageURL: car.images.large.first ?? "", trim: car.trim)
-                }
+                    ForEach((carDataViewModel.carData?.listings) ?? [], id: \.self)  { car in
+                        CarCardView(year: car.year, make: car.make, model: car.model, price: car.currentPrice, miles: car.mileage, state: car.dealer.state, city: car.dealer.city, phoneNumber: car.dealer.phone, imageURL: car.images.large.first ?? "", trim: car.trim)
+                    }
                 }
             }
             .navigationTitle("CarFax")
@@ -45,7 +45,7 @@ struct CarCardView: View {
         ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                 .fill(Color.white)
-                .frame(height: 400)
+                .frame(height: 425)
                 .padding(.horizontal)
                 .shadow(color: Color.black.opacity(0.4), radius: 20, x: 20, y: 20)
             VStack(alignment: .leading) {
@@ -72,7 +72,7 @@ struct CarCardView: View {
                             .bold()
                         Divider()
                             .background(Color.black)
-                        Text("\(miles)k mi")
+                        Text("\(miles) miles")
 
                         Divider()
                             .background(Color.black)
@@ -88,7 +88,18 @@ struct CarCardView: View {
                         Spacer()
                         VStack {
                             Spacer()
-                            Text("\(phoneNumber)")
+                            Button(action: {
+                                let phone = "tel://"
+                                let phoneNumberFormatted = phone + phoneNumber
+                                guard let url = URL(string: phoneNumberFormatted) else  { return }
+                                UIApplication.shared.open(url)
+                            }, label: {
+                                Image(systemName: "phone.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(Color.green)
+                                    .frame(width: 30, height: 30)
+                            })
                         }
                         Spacer()
                     }

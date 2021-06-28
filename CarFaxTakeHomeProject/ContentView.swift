@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var carDataViewModel = CarDataViewModel()
     var body: some View {
         NavigationView {
             ScrollView {

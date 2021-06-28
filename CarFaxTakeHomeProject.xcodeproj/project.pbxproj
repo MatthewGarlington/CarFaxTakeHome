@@ -11,6 +11,8 @@
 		6B125147268A15EA0049B5B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B125146268A15EA0049B5B0 /* ContentView.swift */; };
 		6B125149268A15EB0049B5B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B125148268A15EB0049B5B0 /* Assets.xcassets */; };
 		6B12514C268A15EB0049B5B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B12514B268A15EB0049B5B0 /* Preview Assets.xcassets */; };
+		6B125153268A16510049B5B0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B125152268A16510049B5B0 /* Model.swift */; };
+		6B125155268A16580049B5B0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B125154268A16580049B5B0 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		6B125146268A15EA0049B5B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6B125148268A15EB0049B5B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B12514B268A15EB0049B5B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6B125152268A16510049B5B0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		6B125154268A16580049B5B0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				6B125144268A15EA0049B5B0 /* CarFaxTakeHomeProjectApp.swift */,
 				6B125146268A15EA0049B5B0 /* ContentView.swift */,
+				6B125152268A16510049B5B0 /* Model.swift */,
+				6B125154268A16580049B5B0 /* ViewModel.swift */,
 				6B125148268A15EB0049B5B0 /* Assets.xcassets */,
 				6B12514A268A15EB0049B5B0 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B125153268A16510049B5B0 /* Model.swift in Sources */,
 				6B125147268A15EA0049B5B0 /* ContentView.swift in Sources */,
+				6B125155268A16580049B5B0 /* ViewModel.swift in Sources */,
 				6B125145268A15EA0049B5B0 /* CarFaxTakeHomeProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

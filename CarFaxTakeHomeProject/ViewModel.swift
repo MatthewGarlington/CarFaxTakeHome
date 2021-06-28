@@ -30,7 +30,7 @@ class CarDataViewModel: ObservableObject {
 
                 do {
                     self.carData = try JSONDecoder().decode(CarData?.self, from: data)
-                    print(self.carData?.listings ?? "Error")
+                 //   print(self.carData?.listings ?? "Error")
                 } catch let jsonError {
 
                     print("Decoding failed for Vaccine Data", jsonError)

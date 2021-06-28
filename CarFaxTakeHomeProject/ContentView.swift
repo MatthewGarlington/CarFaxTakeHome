@@ -12,8 +12,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(0..<1, id: \.self)  { num in
-                    CarCardView(year: "2014", make: "Acura", model: "ILX", price: 28495, miles: 100, location: "Fredericksburg, VA", phoneNumber: "508-965-7701")
+                ForEach((carDataViewModel.carData?.listings) ?? [], id: \.self)  { car in
+                    CarCardView(year: car.year, make: car.make, model: car.model, price: car.currentPrice, miles: car.mileage, location: car.dealer.city, phoneNumber: car.dealer.phone)
                 }
             }
             .navigationTitle("CarFax")
@@ -28,7 +28,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct CarCardView: View {
-    var year: String
+    var year: Int
     var make: String
     var model: String
     var price: Int
